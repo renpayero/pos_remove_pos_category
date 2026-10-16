@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Renzo Payero, DakoDev
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- The point of sale category now follows the product category: it is
+         only shown, read-only, in developer mode. -->
+    <record id="product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.pos_remove_pos_category</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="point_of_sale.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="pos_categ_ids" position="attributes">
+                <attribute name="readonly">1</attribute>
+                <attribute name="groups">base.group_no_one</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

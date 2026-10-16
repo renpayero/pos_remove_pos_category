@@ -1,0 +1,131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_remove_pos_category
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20260528\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-16 01:10+0000\n"
+"PO-Revision-Date: 2026-10-16 01:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__available_in_pos
+msgid "Available in the Point of Sale"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_product__pos_categ_ids
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_template__pos_categ_ids
+msgid "Category used in the Point of Sale."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_pos_category__display_name
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__display_name
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_pos_category__id
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__id
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_template__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__image_512
+msgid "Image"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__pos_category_id
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_product__pos_categ_ids
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_template__pos_categ_ids
+msgid "Point of Sale Category"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_pos_category__product_category_ids
+msgid "Product Categories"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model,name:pos_remove_pos_category.model_product_category
+msgid "Product Category"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__pos_category_id
+msgid ""
+"Technical field: point of sale category kept in sync with this product "
+"category."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_pos_category__product_category_ids
+msgid ""
+"Technical field: the product category this point of sale category mirrors."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__pos_visible
+msgid ""
+"Technical field: this category and all its parents are available in the "
+"point of sale."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#. odoo-python
+#: code:addons/pos_remove_pos_category/models/pos_category.py:0
+msgid ""
+"This point of sale category mirrors a product category. Delete the product "
+"category instead."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#. odoo-python
+#: code:addons/pos_remove_pos_category/models/pos_category.py:0
+msgid ""
+"This point of sale category mirrors a product category. Rename or move the "
+"product category instead."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,help:pos_remove_pos_category.field_product_category__available_in_pos
+msgid ""
+"Uncheck to hide this category from the point of sale. Its child categories "
+"are hidden too, whatever their own setting, and their products are shown "
+"without category."
+msgstr ""
+
+#. module: pos_remove_pos_category
+#: model:ir.model.fields,field_description:pos_remove_pos_category.field_product_category__pos_visible
+msgid "Visible in the Point of Sale"
+msgstr ""
+
+#. module: pos_remove_pos_category
+#. odoo-python
+#: code:addons/pos_remove_pos_category/models/product_category.py:0
+msgid ""
+"You cannot delete a product category while a point of sale session is open. "
+"Close the sessions first."
+msgstr ""

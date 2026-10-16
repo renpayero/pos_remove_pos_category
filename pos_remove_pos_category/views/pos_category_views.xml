@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Renzo Payero, DakoDev
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <!-- The menu and the settings button open the product categories, which
+         are the ones the point of sale shows. Restored by the uninstall hook. -->
+    <record id="point_of_sale.product_pos_category_action" model="ir.actions.act_window">
+        <field name="res_model">product.category</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
