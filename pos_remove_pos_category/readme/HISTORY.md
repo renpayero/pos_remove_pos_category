@@ -1,3 +1,4 @@
 ## 19.0.1.0.0
 
-- First version for Odoo 19, rewritten as a mirror of the product categories.
+- Primera versión para Odoo 19, reescrita como espejo de las categorías de
+  producto.

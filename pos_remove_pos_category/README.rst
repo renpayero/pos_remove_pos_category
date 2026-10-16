@@ -11,97 +11,112 @@ POS Remove POS Category
 
 |badge1| |badge2|
 
-This module makes the point of sale use the product categories, so that there
-is a single category tree to maintain.
+Este módulo hace que el punto de venta use las categorías de producto, así
+que hay un solo árbol de categorías para mantener.
 
-Standard Odoo keeps a separate tree of point of sale categories that has to be
-maintained by hand and assigned to every product. With this module:
+Odoo trabaja con dos árboles por separado: las categorías de producto (las de
+Inventario, Contabilidad y los informes) y las categorías del punto de venta
+(los botones de la caja). Hay que mantener los dos a mano y asignarle a cada
+producto su categoría del punto de venta. Con este módulo:
 
-- every product category gets a point of sale category that mirrors it (same
-  name, same parent), created, renamed, moved and deleted along with it;
-- the point of sale category of each product is computed from its product
-  category;
-- the "PoS Product Categories" menu and settings button open the product
-  categories.
+- cada categoría de producto tiene una categoría del punto de venta "espejo",
+  con el mismo nombre y como padre el espejo del padre, que se crea, se
+  renombra, se mueve y se borra junto con la categoría de producto;
+- la categoría del punto de venta de cada producto se calcula sola a partir
+  de su categoría de producto;
+- el menú "Categorías de producto de PdV" y el botón de Ajustes del punto de
+  venta abren las categorías de producto.
 
-The point of sale categories still exist as technical records, so the point of
-sale interface, self ordering, restaurant printers and the "Restrict
-categories" setting keep working unchanged. The module adds no JavaScript.
+Las categorías del punto de venta siguen existiendo como registros técnicos,
+así que la caja, el autoservicio, las impresoras del modo restaurante y la
+opción "Restringir categorías" siguen funcionando sin cambios. El módulo no
+agrega JavaScript.
 
-No configuration is needed: on installation every existing product category is
-mirrored and every product, archived ones included, gets its point of sale
-category.
+No hay nada que configurar: al instalarlo crea el espejo de todas las
+categorías de producto existentes y le asigna su categoría del punto de venta
+a cada producto, incluidos los archivados.
 
-This is a reimplementation for Odoo 19 of the idea of the OCA module of the same
-name (versions 10.0 and 12.0), which replaced the model loaded by the point of
-sale with the product categories. That is not possible anymore: in Odoo 19 the
-point of sale interface and the self ordering, restaurant and event modules are
-built around ``pos.category``.
+Es una reimplementación para Odoo 19 de la idea del módulo de OCA del mismo
+nombre (versiones 10.0 y 12.0), que reemplazaba el modelo que carga la caja
+por las categorías de producto. En la 19 eso ya no se puede: la pantalla de la
+caja y los módulos de autoservicio, restaurante y eventos dependen de
+``pos.category``.
 
-**Table of contents**
+**Índice**
 
 .. contents::
    :local:
 
-Usage
-=====
+Uso
+===
 
-- Manage the categories from *Inventory > Configuration > Product Categories*
-  or *Point of Sale > Configuration > PoS Product Categories*.
-- Uncheck *Available in the Point of Sale* on a category to hide it and all its
-  children from the point of sale, whatever their own setting. Their products
-  can still be sold: they are listed with all the products and found by
-  search, without category.
-- Set an image on a product category to show it on its point of sale button
-  (point of sale setting *Show category images*).
-- The point of sale category of a product is read-only. In developer mode it is
-  shown on the *Point of Sale* tab of the product form.
-- Uninstalling the module keeps the point of sale categories and the products
-  linked to them, as regular point of sale categories. Installing it again
-  reuses them instead of creating duplicates.
+- Las categorías se administran desde *Inventario > Configuración >
+  Categorías de productos* o desde *Punto de venta > Configuración >
+  Categorías de producto de PdV*.
+- Destildar *Disponible en el punto de venta* en una categoría la oculta de la
+  caja junto con todas sus hijas, sin importar lo que tenga marcado cada hija.
+  Sus productos se siguen vendiendo: aparecen en la lista de todos los
+  productos y al buscar, sin categoría.
+- Una imagen en la categoría de producto se muestra en su botón de la caja
+  cuando está activada la opción *Mostrar imágenes de categorías* del punto de
+  venta.
+- La categoría del punto de venta de un producto es de solo lectura. En modo
+  desarrollador se ve en la pestaña *Punto de venta* del producto.
+- Si alguien intenta cambiar el nombre o el padre de un espejo directamente, o
+  borrarlo, el sistema le indica que lo haga desde la categoría de producto.
+- Al desinstalar el módulo, las categorías del punto de venta y la asignación
+  de cada producto se conservan como categorías comunes del punto de venta. Si
+  se instala de nuevo, las reutiliza y no las duplica.
 
-Known issues / Roadmap
+Limitaciones conocidas
 ======================
 
-- The session closing report (*Sales Details*) groups the sales by point of
-  sale category name, as standard Odoo does: two categories with the same name
-  under different parents are merged in that report.
-- Point of sale categories created by hand, that mirror no product category,
-  are kept but no product is linked to them.
-- The point of sale onboarding scenarios (restaurant, bar, ...) set their own
-  point of sale categories on the products they create. Those products keep
-  them until their product category changes.
+- El informe de cierre de sesión (*Detalles de ventas*) agrupa las ventas por
+  el nombre de la categoría del punto de venta, como hace Odoo de por sí: dos
+  categorías con el mismo nombre bajo padres distintos se juntan en ese
+  informe.
+- Las categorías del punto de venta creadas a mano, que no son espejo de
+  ninguna categoría de producto, se conservan pero no tienen productos.
+- Los escenarios de bienvenida del punto de venta (restaurante, bar, etc.) les
+  asignan sus propias categorías del punto de venta a los productos que crean.
+  Esos productos las conservan hasta que se les cambie la categoría de
+  producto.
+- La caja muestra una categoría solo si tiene productos cargados. Odoo 19 carga
+  al abrir la caja hasta ``point_of_sale.limited_product_count`` productos
+  (5.000 por defecto): con más productos que ese límite, alguna categoría puede
+  no aparecer hasta que se busquen sus productos.
 
-Changelog
-=========
+Historial de cambios
+====================
 
 19.0.1.0.0
 ----------
 
-- First version for Odoo 19, rewritten as a mirror of the product categories.
+- Primera versión para Odoo 19, reescrita como espejo de las categorías de
+  producto.
 
-Bug Tracker
-===========
+Reporte de errores
+==================
 
-Bugs are tracked on `GitHub Issues <https://github.com/renpayero/pos_remove_pos_category/issues>`_.
+Los errores se reportan en `GitHub Issues <https://github.com/renpayero/pos_remove_pos_category/issues>`_.
 
-Credits
-=======
+Créditos
+========
 
-Authors
+Autores
 -------
 
 - Renzo Payero
 - DakoDev
 
-Contributors
-------------
+Colaboradores
+-------------
 
 - Renzo Payero <rpayerodev@gmail.com> (DakoDev)
 
-Other credits
--------------
+Otros créditos
+--------------
 
-Based on the idea of the OCA module ``pos_remove_pos_category`` for Odoo 10.0
-and 12.0, by Akretion, Camptocamp and ACSONE SA/NV (Sylvain Calador, Simone
-Orsi and Cédric Pigeon).
+Basado en la idea del módulo ``pos_remove_pos_category`` de OCA para Odoo 10.0
+y 12.0, de Akretion, Camptocamp y ACSONE SA/NV (Sylvain Calador, Simone Orsi y
+Cédric Pigeon).

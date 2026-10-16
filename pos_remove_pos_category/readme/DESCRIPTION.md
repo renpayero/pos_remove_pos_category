@@ -1,26 +1,30 @@
-This module makes the point of sale use the product categories, so that there
-is a single category tree to maintain.
+Este módulo hace que el punto de venta use las categorías de producto, así
+que hay un solo árbol de categorías para mantener.
 
-Standard Odoo keeps a separate tree of point of sale categories that has to be
-maintained by hand and assigned to every product. With this module:
+Odoo trabaja con dos árboles por separado: las categorías de producto (las de
+Inventario, Contabilidad y los informes) y las categorías del punto de venta
+(los botones de la caja). Hay que mantener los dos a mano y asignarle a cada
+producto su categoría del punto de venta. Con este módulo:
 
-- every product category gets a point of sale category that mirrors it (same
-  name, same parent), created, renamed, moved and deleted along with it;
-- the point of sale category of each product is computed from its product
-  category;
-- the "PoS Product Categories" menu and settings button open the product
-  categories.
+- cada categoría de producto tiene una categoría del punto de venta "espejo",
+  con el mismo nombre y como padre el espejo del padre, que se crea, se
+  renombra, se mueve y se borra junto con la categoría de producto;
+- la categoría del punto de venta de cada producto se calcula sola a partir
+  de su categoría de producto;
+- el menú "Categorías de producto de PdV" y el botón de Ajustes del punto de
+  venta abren las categorías de producto.
 
-The point of sale categories still exist as technical records, so the point of
-sale interface, self ordering, restaurant printers and the "Restrict
-categories" setting keep working unchanged. The module adds no JavaScript.
+Las categorías del punto de venta siguen existiendo como registros técnicos,
+así que la caja, el autoservicio, las impresoras del modo restaurante y la
+opción "Restringir categorías" siguen funcionando sin cambios. El módulo no
+agrega JavaScript.
 
-No configuration is needed: on installation every existing product category is
-mirrored and every product, archived ones included, gets its point of sale
-category.
+No hay nada que configurar: al instalarlo crea el espejo de todas las
+categorías de producto existentes y le asigna su categoría del punto de venta
+a cada producto, incluidos los archivados.
 
-This is a reimplementation for Odoo 19 of the idea of the OCA module of the same
-name (versions 10.0 and 12.0), which replaced the model loaded by the point of
-sale with the product categories. That is not possible anymore: in Odoo 19 the
-point of sale interface and the self ordering, restaurant and event modules are
-built around `pos.category`.
+Es una reimplementación para Odoo 19 de la idea del módulo de OCA del mismo
+nombre (versiones 10.0 y 12.0), que reemplazaba el modelo que carga la caja
+por las categorías de producto. En la 19 eso ya no se puede: la pantalla de la
+caja y los módulos de autoservicio, restaurante y eventos dependen de
+`pos.category`.
